@@ -8,6 +8,8 @@ class BookmarkView extends GetView<BookmarkController> {
   const BookmarkView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final widthBody = MediaQuery.of(context).size.width;
+    final heightBody = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top - MediaQuery.of(context).padding.bottom;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -32,48 +34,42 @@ class BookmarkView extends GetView<BookmarkController> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Row(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  width: 120,
-                  height: 180,
-                  decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(5)),
+      body: Container(
+        width: widthBody,
+        height: heightBody,
+        padding: const EdgeInsets.all(10),
+        child: Obx(() => controller.loading.value ? const Center(child: CircularProgressIndicator(),) : GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            childAspectRatio: 3/6,
+            mainAxisSpacing: 5,
+            crossAxisSpacing: 5
+            ), 
+            itemBuilder: (context, index) {
+              return InkWell(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 200,
+                      height: 200,
+                      color: Colors.red,
+                    ),
+                    SizedBox(height: heightBody * 0.01,),
+                    Text(
+                      "Buku keren - $index",
+                      maxLines: 2,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        overflow: TextOverflow.ellipsis
+                      ),
+                    )
+                  ],
                 ),
-                Container(
-                  width: 100,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    "Judul Buku",
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    "Penulis",
-                    style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.grey,
-                        fontWeight: FontWeight.bold,
-                        overflow: TextOverflow.ellipsis),
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
+              );
+            },
+            itemCount: 5,
+            ))
       ),
     );
   }

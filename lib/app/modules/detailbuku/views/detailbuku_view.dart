@@ -56,19 +56,19 @@ class DetailbukuView extends GetView<DetailbukuController> {
                           children: [
                             Text(
                               " ${state.judul ?? ''} ",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.bold),
                             ),
                             Text(
                               " ${state.penulis ?? ''} ",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                   color: Color.fromARGB(1000, 191, 191, 191)),
                             ),
                             SizedBox(
                               width: Get.width * 0.5,
-                              child: Row(
+                              child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
 
@@ -121,7 +121,9 @@ class DetailbukuView extends GetView<DetailbukuController> {
                                       Icons.bookmark,
                                       color: Color.fromRGBO(22, 30, 95, 10),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () async {
+                                      await controller.addKoleksi();
+                                    },
                                   ),
                                 ],
                               ),

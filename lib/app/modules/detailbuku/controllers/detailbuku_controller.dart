@@ -103,6 +103,24 @@ class DetailbukuController extends GetxController with StateMixin<DataDetail> {
     }
   }
 
+  Future<void> addKoleksi() async {
+    try {
+      final response = await ApiProvider.instance().post(Endpoint.koleksi, data: ({
+        "UserID": userId,
+        "BookID": bukuiId
+      }));
+
+      if (response.statusCode == 201) {
+        log("berhasil");
+      }else if(response.statusCode == 400){
+        log("Sudah ada ya!");
+      }
+
+    } catch (e) {
+      log(e.toString());
+    }
+  }
+
 
   void increment() => count.value++;
 }
