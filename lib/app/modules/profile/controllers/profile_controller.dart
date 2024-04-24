@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:bacasaku/app/data/constant/endpoint.dart';
+import 'package:bacasaku/app/data/model/response_peminjaman_userid.dart';
 import 'package:bacasaku/app/data/model/response_riwayat.dart';
 import 'package:bacasaku/app/data/provider/api_provider.dart';
 import 'package:bacasaku/app/data/provider/storage_provider.dart';
@@ -7,15 +10,20 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ProfileController extends GetxController with GetSingleTickerProviderStateMixin{
+class ProfileController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   late TabController tabController;
 
   final count = 0.obs;
+  final userid = StorageProvider.read(StorageKey.idUser);
+  final dataPemijaman = RxList<Data>();
+  final loading = false.obs;
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
     tabController = TabController(length: 2, vsync: this, initialIndex: 0);
+    await getPeminjaman();
   }
 
   @override
@@ -35,51 +43,23 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
     super.onClose();
   }
 
-  // getData() async {
-  //   change(null, status: RxStatus.loading());
-  //   try {
-  //     final response = await ApiProvider.instance()
-  //         .get("${Endpoint.pinjam}/?userId=${StorageProvider.read(StorageKey.idUser)}");
-  //     if (response.statusCode == 200) {
-  //       final ResponseRiwayat responseRiwayat = ResponseRiwayat.fromJson(response.data);
-  //       if (responseRiwayat.data!.isEmpty) {
-  //         change(null, status: RxStatus.empty());
-  //       } else {
-  //         change(responseRiwayat as List<DataRiwayat>?, status: RxStatus.success());
-  //       }
-  //     } else {
-  //       change(null, status: RxStatus.error("${response.data['message']}"));
-  //     }
-  //   } on DioError catch (e) {
-  //     if (e.response != null) {
-  //       change(null, status: RxStatus.error("${e.response!.data['message']}"));
-  //     } else {
-  //       change(null, status: RxStatus.error(e.message ?? ""));
-  //     }
-  //   } catch (e) {
-  //     change(null, status: RxStatus.error(e.toString()));
-  //   }
-  // }
+  Future<void> getPeminjaman() async {
+    try {
+      loading(true);
+      final response = await ApiProvider.instance()
+          .get(Endpoint.pinjam, queryParameters: {"userId": userid});
+      if (response.statusCode == 200) {
+        loading(false);
+        final result = ResponsePeminjamanUserid.fromJson(response.data);
+        if (result.total != 0) {
+          dataPemijaman.value = result.data!;
+        }
+      }
+    } catch (e) {
+      log(e.toString());
+      loading(false);
+    }
+  }
 
   void increment() => count.value++;
 }
-
-// class ProfileView extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     final ProfileController profileController = Get.put(ProfileController());
-
-//     return GetBuilder<ProfileController>(
-//       builder: (_) {
-//         return Scaffold(
-//           appBar: AppBar(
-//             title: Text("Profile"),
-//           ),
-//           body: Center(
-//             child: Text("Profile Content"),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
