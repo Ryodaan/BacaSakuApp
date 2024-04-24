@@ -39,9 +39,10 @@ class BookmarkView extends GetView<BookmarkController> {
         height: heightBody,
         padding: const EdgeInsets.all(10),
         child: Obx(() => controller.loading.value ? const Center(child: CircularProgressIndicator(),) : GridView.builder(
+          scrollDirection: Axis.vertical,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            childAspectRatio: 3/6,
+            childAspectRatio: 3/7,
             mainAxisSpacing: 5,
             crossAxisSpacing: 5
             ), 
@@ -53,11 +54,13 @@ class BookmarkView extends GetView<BookmarkController> {
                     Container(
                       width: 200,
                       height: 200,
-                      color: Colors.red,
+                      child: ClipRRect(
+                        child: Image.network(controller.dataKoleksi[index].buku!.gambar!),
+                      ),
                     ),
-                    SizedBox(height: heightBody * 0.01,),
+
                     Text(
-                      "Buku keren - $index",
+                      controller.dataKoleksi[index].buku!.judul.toString(),
                       maxLines: 2,
                       style: const TextStyle(
                         fontSize: 16,
@@ -68,7 +71,7 @@ class BookmarkView extends GetView<BookmarkController> {
                 ),
               );
             },
-            itemCount: 5,
+            itemCount: controller.dataKoleksi.length,
             ))
       ),
     );

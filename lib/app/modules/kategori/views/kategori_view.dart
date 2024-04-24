@@ -77,7 +77,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -87,7 +87,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -103,7 +103,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -113,7 +113,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -129,7 +129,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -139,7 +139,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -155,7 +155,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -165,7 +165,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -181,7 +181,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -191,7 +191,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -207,7 +207,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -217,7 +217,7 @@ class KategoriView extends GetView<KategoriController> {
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255, 10, 51, 236),borderRadius: BorderRadius.circular(20)
                   ),
-                  width: 180,
+                  width: 170,
                   height: 100,
                   margin: EdgeInsets.all(10),
                   padding: EdgeInsets.all(10),
@@ -226,6 +226,7 @@ class KategoriView extends GetView<KategoriController> {
                 
               ],
             ),
+            
             
           ],
         ),

@@ -34,30 +34,47 @@ class LoginView extends GetView<LoginController> {
                           color: Color(0xff161E5F))),
                 ),
                 Container(
-                    margin: EdgeInsets.only(top: 10),
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                    child: TextFormField(
-                      controller: controller.usernameController,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 10, color: Color(0xff161E5F)),
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'Enter your username',
+                  margin: EdgeInsets.only(top: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                  child: TextFormField(
+                    controller: controller.usernameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(width: 1, color: Color(0xff161E5F)),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                    )),
+                      labelText: 'Masukkan Username',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Username harus diisi';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
                 Container(
-                    padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-                    child: TextFormField(
-                      controller: controller.passwordController,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 10, color: Color(0xff161E5F)),
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'Enter your username',
+                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                  child: TextFormField(
+                    controller: controller.passwordController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(width: 1, color: Color(0xff161E5F)),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                    )),
+                      labelText: 'Masukkan Password',
+                    ),
+                    obscureText: true, // Agar teks tersembunyi saat dimasukkan
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Password harus diisi';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
               ],
             ),
           ),

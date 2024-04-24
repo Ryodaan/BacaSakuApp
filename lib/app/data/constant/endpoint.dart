@@ -1,5 +1,5 @@
 class Endpoint {
-  static const String baseUrlApi = "http://192.168.4.143:3000/api/";
+  static const String baseUrlApi = "http://192.168.0.2:3000/api/";
   // static const String baseUrlApi = "https://bacasaku-api.vercel.app/api/";
 
 

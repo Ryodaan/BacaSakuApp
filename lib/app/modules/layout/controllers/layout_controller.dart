@@ -1,6 +1,7 @@
 import 'package:bacasaku/app/data/provider/storage_provider.dart';
 import 'package:bacasaku/app/modules/bookmark/views/bookmark_view.dart';
 import 'package:bacasaku/app/modules/home/views/home_view.dart';
+import 'package:bacasaku/app/modules/kategori/views/kategori_view.dart';
 import 'package:bacasaku/app/modules/profile/views/profile_view.dart';
 import 'package:bacasaku/app/modules/profileadmin/views/profileadmin_view.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,7 @@ class LayoutController extends GetxController {
 
     final screen = const [
     HomeView(),
-    HomeView(),
+    KategoriView(),
     BookmarkView(),
     ProfileView
     (),

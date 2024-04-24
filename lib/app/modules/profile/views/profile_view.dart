@@ -72,13 +72,14 @@ class ProfileView extends GetView<ProfileController> {
           ),
           Container(
             height: MediaQuery.of(context).size.height *
-                0.5, // Sesuaikan dengan tinggi yang diinginkan
+                0.46, // Sesuaikan dengan tinggi yang diinginkan
             child: TabBarView(controller: controller.tabController, children: [
               Container(
                 height: Get.height,
                 child: ListView.builder(
                   itemCount: 5,
-                  itemBuilder: (context, index) => SingleChildScrollView(
+                  itemBuilder: (context, index) => SizedBox(
+                    width: Get.width,
                     child: Column(
                       children: [
                         Row(
@@ -144,7 +145,7 @@ class ProfileView extends GetView<ProfileController> {
                                       ],
                                     ),
                                     Container(
-                                      width: 250,
+                                      width: 230,
                                       child: Text(
                                         "Reprehenderit laborum veniam cillum id dolor aliquip eiusmod consequat eu. Qui ullamco id laboris adipisicing velit et. Et ut enim commodo anim enim incididunt in. Officia reprehenderit nostrud sint irure et sunt aliqua aliquip ea ad id. Reprehenderit sit nostrud nisi sint eni.",
                                         maxLines: 2,
@@ -320,7 +321,7 @@ class ProfileView extends GetView<ProfileController> {
                                       ],
                                     ),
                                     Container(
-                                      width: 250,
+                                      width: 230,
                                       child: Text(
                                         "Reprehenderit laborum veniam cillum id dolor aliquip eiusmod consequat eu. Qui ullamco id laboris adipisicing velit et. Et ut enim commodo anim enim incididunt in. Officia reprehenderit nostrud sint irure et sunt aliqua aliquip ea ad id. Reprehenderit sit nostrud nisi sint eni.",
                                         maxLines: 2,
