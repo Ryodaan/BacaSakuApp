@@ -104,11 +104,16 @@ class ProfileView extends GetView<ProfileController> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          controller.dataPemijaman[index].buku!.judul.toString(),
-                                          style: TextStyle(
-                                              fontSize: 23,
-                                              fontWeight: FontWeight.bold),
+                                        Container(
+                                          width: 235,
+                                          child: Text(
+                                            controller.dataPemijaman[index].buku!.judul.toString(),
+                                            maxLines: 1,
+                                            style: TextStyle(
+                                                overflow: TextOverflow.ellipsis,
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                         Row(
                                           mainAxisAlignment:
@@ -155,7 +160,7 @@ class ProfileView extends GetView<ProfileController> {
                                           width: 230,
                                           child: Text(
                                             controller.dataPemijaman[index].buku!.deskripsi.toString(),
-                                            maxLines: 2,
+                                            maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
